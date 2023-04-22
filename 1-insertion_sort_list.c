@@ -19,6 +19,8 @@ void insertion_sort_list(listint_t **list)
 		tmpN = tmpN->next;
 
 	tmpS = *list;
+	if (size == 1)
+		return;
 	for (i = 0; *list; i++)
 	{
 		if ((*list)->next)
