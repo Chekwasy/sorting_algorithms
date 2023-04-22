@@ -1,0 +1,40 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "sort.h"
+
+/**
+ * insertion_sort_list - Prints an array of integers
+ *
+ * @list: The double linked list to be printed
+ */
+void insertion_sort_list(listint_t **list)
+{
+	listint_t *tmpN, *tmpS;
+	int *tmp1, *tmp2, tmp, size, i;
+
+	if ((*list) == NULL)
+		return;
+	tmpN = *list;
+	for (size = 0; tmpN; size++)
+		tmpN = tmpN->next;
+
+	tmpS = *list;
+	for (i = 0; *list; i++)
+	{
+		if ((*list)->next)
+			tmpN = (*list)->next;
+
+		if ((tmpN->n < (*list)->n) && ((*list)->next))
+		{
+			tmp1 = (int *)&(tmpN->n);
+			tmp2 = (int *)&(*list)->n;
+			tmp = *tmp1;
+			*tmp1 = *tmp2;
+			*tmp2 = tmp;
+			print_list(tmpS);
+			*list = tmpS;
+			continue;
+		}
+		*list = (*list)->next;
+	}
+}
