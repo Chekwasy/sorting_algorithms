@@ -16,14 +16,14 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- * partition - partition
+ * partition_ - partition
  * @array: array
  * @lo: lower
  * @hi: higher
  * @size: array's size
  * Return: i
  */
-int partition(int *array, int lo, int hi, size_t size)
+int partition_(int *array, int lo, int hi, size_t size)
 {
 	int i = lo - 1, j = lo;
 	int pivot = array[hi], aux = 0;
@@ -66,7 +66,7 @@ void quick_s(int *array, int lo, int hi, size_t size)
 
 	if (lo < hi)
 	{
-		pivot = partition(array, lo, hi, size);
+		pivot = partition_(array, lo, hi, size);
 		quick_s(array, lo, pivot - 1, size);
 		quick_s(array, pivot + 1, hi, size);
 	}
